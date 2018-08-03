@@ -692,8 +692,9 @@ var abstractStateRouter = function StateProvider(makeRenderer, rootElement) {
 	stateProviderEmitter.makePath = function (stateName, parameters, options) {
 		return pathPrefix + makePath(stateName, parameters, options);
 	};
-	stateProviderEmitter.active = function () {
-		return lastCompletelyLoadedState.get().name;
+	stateProviderEmitter.getActiveState = function () {
+		console.log(lastCompletelyLoadedState.get());
+		return lastCompletelyLoadedState.get();
 	};
 	stateProviderEmitter.stateIsActive = function (stateName) {
 		var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
